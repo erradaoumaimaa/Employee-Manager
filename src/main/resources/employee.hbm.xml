@@ -7,7 +7,7 @@
     <class name="models.Employee" table="employee">
         <id name="id" column="id" type="integer">
             <generator class="native"/>
-        </id>       
+        </id>
         <property name="name" column="name" not-null="true" type="string"/>
         <property name="email" column="email" not-null="true" type="string"/>
         <property name="phone" column="phone" not-null="true" type="string"/>
