@@ -11,5 +11,4 @@ public interface EmployeeDAO {
 	void removeEmployee(int id);
 	void updateEmployee(Employee employee);
 	List<Employee> getAllEmployees();
-	List<Employee> filterEmployees(String search);
 }

@@ -17,6 +17,24 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	public EmployeeDAOImpl() {
         this.sessionFactory = HibernateUtil.getSessionFactory();
     }
+	@Override
+	public Optional<Employee> findById(int id) {
+		Transaction transaction = null;
+		Employee employee = null;
+		
+		try (Session session = sessionFactory.openSession()) {
+			transaction = session.beginTransaction();
+			employee = session.get(Employee.class, id); 
+			transaction.commit();
+		} catch (Exception e) {
+			if (transaction != null) {
+				transaction.rollback(); 
+			}
+			e.printStackTrace(); 
+		}
+		
+		return Optional.ofNullable(employee); 
+	}
 	
 	
     @Override
@@ -95,34 +113,5 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	    }
 	    
 	    return employees; 
-	}
-
-
-	@Override
-	public List<Employee> filterEmployees(String search) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public Optional<Employee> findById(int id) {
-	    Transaction transaction = null;
-	    Employee employee = null;
-	    
-	    try (Session session = sessionFactory.openSession()) {
-	        transaction = session.beginTransaction();
-	        employee = session.get(Employee.class, id); 
-	        transaction.commit();
-	    } catch (Exception e) {
-	        if (transaction != null) {
-	            transaction.rollback(); 
-	        }
-	        e.printStackTrace(); 
-	    }
-	    
-	    return Optional.ofNullable(employee); 
-	}
-
-	
+	}	
 }
