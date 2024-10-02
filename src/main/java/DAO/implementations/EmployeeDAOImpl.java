@@ -1,6 +1,7 @@
 package DAO.implementations;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -35,8 +36,23 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     
 	@Override
 	public void removeEmployee(int id) {
-		// TODO Auto-generated method stub
-		
+		Transaction transaction = null;
+		try(Session session = sessionFactory.openSession()){
+			transaction = session.beginTransaction();
+		Optional<Employee> findEmp = findById(id);
+		if(findEmp.isPresent()) {
+			Employee emp = findEmp.get();
+			session.remove(emp);
+			transaction.commit();
+		} else {
+            System.out.println("Employee not found with id: " + id);
+        }	
+		}catch(Exception e) {
+			if(transaction != null) {
+				transaction.rollback();
+			}
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -70,5 +86,26 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	@Override
+	public Optional<Employee> findById(int id) {
+	    Transaction transaction = null;
+	    Employee employee = null;
+	    
+	    try (Session session = sessionFactory.openSession()) {
+	        transaction = session.beginTransaction();
+	        employee = session.get(Employee.class, id); 
+	        transaction.commit();
+	    } catch (Exception e) {
+	        if (transaction != null) {
+	            transaction.rollback(); 
+	        }
+	        e.printStackTrace(); 
+	    }
+	    
+	    return Optional.ofNullable(employee); 
+	}
+
 	
 }
