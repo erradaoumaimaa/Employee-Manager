@@ -2,6 +2,7 @@ package services.implementations;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import DAO.interfaces.EmployeeDAO;
 import models.Employee;
@@ -35,8 +36,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public List<Employee> filterEmployees(String search) {
-		return null; 
+	public List<Employee> filterEmployees(String position,String department) {
+		
+		List<Employee> employees = employeeDAO.getAllEmployees();
+		
+		return employees.stream()
+	            .filter(employee -> (position == null || position.isEmpty() || 
+	                                 employee.getPosition().equalsIgnoreCase(position)) &&
+	                                (department == null || department.isEmpty() || 
+	                                 employee.getDepartment().equalsIgnoreCase(department)))
+	            .collect(Collectors.toList()); 
 	}
 
 	@Override

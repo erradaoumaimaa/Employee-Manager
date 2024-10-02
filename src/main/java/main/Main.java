@@ -9,7 +9,6 @@ import models.Employee;
 public class Main {
 
     public static void main(String[] args) {
-        
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         
         Employee empl = new Employee();

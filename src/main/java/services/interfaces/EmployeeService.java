@@ -15,7 +15,7 @@ public interface EmployeeService {
 	    
 	    List<Employee> getAllEmployees();
 	    
-	    List<Employee> filterEmployees(String search);
+	    List<Employee> filterEmployees(String position,String department);
 	    
 	    Optional<Employee> findById(int id);
 
