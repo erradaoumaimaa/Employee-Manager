@@ -45,7 +45,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 			session.remove(emp);
 			transaction.commit();
 		} else {
-            System.out.println("Employee not found with id: " + id);
+            System.out.println("Employee not found id: " + id);
         }	
 		}catch(Exception e) {
 			if(transaction != null) {
@@ -57,8 +57,25 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 	@Override
 	public void updateEmployee(Employee employee) {
-        
-    }
+	    Transaction transaction = null;
+	    try (Session session = sessionFactory.openSession()) {
+	        transaction = session.beginTransaction();
+	        Optional<Employee> findEmp = findById(employee.getId());
+	        if (findEmp.isPresent()) {
+	            session.update(employee);
+	            transaction.commit();
+	        } else {
+	            System.out.println("Employee not found  id: " + employee.getId());
+	        }
+	    } catch (Exception e) {
+	        if (transaction != null) {
+	            transaction.rollback();
+	        }
+	        e.printStackTrace(); 
+	    }
+	}
+
+
 
 
 	@Override
