@@ -4,9 +4,10 @@
 <html>
 <head>
     <title>Add Employee</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/webresources/masters/styles/style.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/webressources/masters/styles/styleform.css?v=1.0" />
 </head>
 <body>
+<div class="form-container">
 <h2>Add Employee</h2>
 <form action="${pageContext.request.contextPath}/employees?action=add" method="post">
     <label for="name">Name:</label>
@@ -32,5 +33,7 @@
     <button type="submit">Add</button>
     <a href="${pageContext.request.contextPath}/employees?action=list">Cancel</a>
 </form>
+</div>
+
 </body>
 </html>

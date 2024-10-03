@@ -12,6 +12,11 @@
 <div class="container">
     <div class="tbl_content">
         <h2>Manage Employees</h2>
+         <div style="text-align: right; margin-bottom: 10px;">
+            <a href="${pageContext.request.contextPath}/employees?action=create" class="btn_add">
+                <i class="fa fa-plus"></i> Add Employee
+            </a>
+        </div>
         <table class="tbl">
             <thead>
                 <tr>
@@ -38,6 +43,7 @@
 							    <a href="${pageContext.request.contextPath}/employees?action=edit&id=${employee.id}" class="btn_edit">
 							        <i class="fa fa-pencil"></i>
 							    </a>
+							    
 							</td>
 							                            
                             <td data-label="Delete">

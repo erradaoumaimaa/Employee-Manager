@@ -7,7 +7,7 @@
   font-family: "Poppins", sans-serif;
 }
 body {
-  background: #ccc;
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,8 +22,8 @@ body {
 .container h2 {
   padding: 2rem 1rem;
   text-align: center;
-   background: #000000; 
-   color: #fca311; 
+   background: #023047; 
+   color: #ffffff; 
   font-size: 2.5rem;
 }
 .tbl {
@@ -31,8 +31,8 @@ body {
   border-collapse: collapse;
 }
 .tbl thead {
-  background: #000000;
-  color: #fca311;
+  background: #023047;
+  color: #ffffff;
 }
 .tbl thead tr th {
   font-size: 0.9rem;
@@ -50,7 +50,7 @@ body {
   padding: 0.8rem;
 }
 .tbl tr:nth-child(even) {
-  background: #ccc;
+  background: #8ecae6;
   transition: all 0.3s ease-in;
   cursor: pointer;
 }
@@ -65,13 +65,24 @@ body {
   cursor: pointer;
 }
 .btn_trash {
-  background: #e74c3c;
-  color: #fff;
+  color: #d00000;
 }
 .btn_edit {
-  color: #fff;
-  background: #1e8449;
+  color: #ffb703;
 }
+.btn_add {
+    color: #008000; 
+    padding: 10px 15px;
+    text-decoration: none; 
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.btn_add:hover {
+ 
+    color: #d00000; 
+}
+
 @media (max-width: 768px) {
   .tbl thead {
     display: none;
