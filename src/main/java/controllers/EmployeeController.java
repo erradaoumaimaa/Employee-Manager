@@ -6,7 +6,6 @@ import java.util.Optional;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +14,6 @@ import models.Employee;
 import services.implementations.EmployeeServiceImpl;
 import services.interfaces.EmployeeService;
 
-@WebServlet("/employees")
 public class EmployeeController extends HttpServlet {
 
     private EmployeeService employeeService;

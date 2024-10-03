@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import DAO.interfaces.EmployeeDAO;
 import models.Employee;
@@ -115,4 +116,26 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	    
 	    return employees; 
 	}	
+	
+	public List<Employee> findAllEmployees(String search, String position, String department) {
+	    List<Employee> employees = null;
+	    search = "%" + search.toLowerCase() + "%";
+	    
+	    String hql = "from Employee WHERE (lower(name) LIKE :search OR lower(email) LIKE :search) " +
+	                 "AND (:position IS NULL OR lower(position) = :position) " +
+	                 "AND (:department IS NULL OR lower(department) = :department)";
+
+	    try (Session session = sessionFactory.openSession()) {
+	        Query<Employee> query = session.createQuery(hql, Employee.class);
+	        query.setParameter("search", search);
+	        query.setParameter("position", position != null && !position.isEmpty() ? position.toLowerCase() : null);
+	        query.setParameter("department", department != null && !department.isEmpty() ? department.toLowerCase() : null);
+	        employees = query.list();
+	    } catch (Exception e) {
+	        e.printStackTrace(); 
+	    }
+	    
+	    return employees; 
+	}
+
 }

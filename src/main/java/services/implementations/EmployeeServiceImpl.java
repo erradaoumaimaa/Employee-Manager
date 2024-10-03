@@ -35,21 +35,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeDAO.getAllEmployees();
 	}
 
-	@Override
-	public List<Employee> filterEmployees(String position,String department) {
-		
-		List<Employee> employees = employeeDAO.getAllEmployees();
-		
-		return employees.stream()
-	            .filter(employee -> (position == null || position.isEmpty() || 
-	                                 employee.getPosition().equalsIgnoreCase(position)) &&
-	                                (department == null || department.isEmpty() || 
-	                                 employee.getDepartment().equalsIgnoreCase(department)))
-	            .collect(Collectors.toList()); 
-	}
+
 
 	@Override
 	public Optional<Employee> findById(int id) {
 		return employeeDAO.findById(id);
 	}
+
+	@Override
+	public List<Employee> filterEmployees(String search, String position, String department) {
+	    return employeeDAO.findAllEmployees(search, position, department);
+	}
+
 }

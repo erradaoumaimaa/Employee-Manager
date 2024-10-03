@@ -14,9 +14,9 @@ public interface EmployeeService {
 	    void updateEmployee(Employee employee);
 	    
 	    List<Employee> getAllEmployees();
-	    
-	    List<Employee> filterEmployees(String position,String department);
-	    
+	    	    
 	    Optional<Employee> findById(int id);
+	    
+	    List<Employee> filterEmployees(String search, String position, String department);
 
 }
