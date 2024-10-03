@@ -38,7 +38,10 @@
                                 <button class="btn_edit"><i class="fa fa-pencil"></i></button>
                             </td>
                             <td data-label="Delete">
-                                <button class="btn_trash"><i class="fa fa-trash"></i></button>
+                                <a href="<%=request.getContextPath() %>/EmployeeController?action=delete&id=${employee.id}" class="btn_trash" 
+                                   onclick="return confirm('Are you sure you want to delete this employee?');">
+                                    <i class="fa fa-trash"></i>
+                                </a>
                             </td>
                         </tr>
                     </c:forEach>
