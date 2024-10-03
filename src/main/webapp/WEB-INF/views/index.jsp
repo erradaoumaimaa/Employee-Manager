@@ -35,10 +35,13 @@
                             <td data-label="Department"><c:out value="${employee.department}" /></td>
                             <td data-label="Position"><c:out value="${employee.position}" /></td>
                             <td data-label="Edit">
-                                <button class="btn_edit"><i class="fa fa-pencil"></i></button>
-                            </td>
+							    <a href="${pageContext.request.contextPath}/employees?action=edit&id=${employee.id}" class="btn_edit">
+							        <i class="fa fa-pencil"></i>
+							    </a>
+							</td>
+							                            
                             <td data-label="Delete">
-                                <a href="<%=request.getContextPath() %>/EmployeeController?action=delete&id=${employee.id}" class="btn_trash" 
+                                <a href="<%=request.getContextPath() %>/employees?action=delete&id=${employee.id}" class="btn_trash" 
                                    onclick="return confirm('Are you sure you want to delete this employee?');">
                                     <i class="fa fa-trash"></i>
                                 </a>

@@ -9,14 +9,26 @@ public class Employee {
     private String position;
 
     
-//    public Employee(int id, String name, String email, String phone, String department, String position) {
-//        this.id = id;
-//        this.name = name;
-//        this.email = email;
-//        this.phone = phone;
-//        this.department = department;
-//        this.position = position;
-//    }
+    public Employee(int id, String name, String email, String phone, String department, String position) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.department = department;
+        this.position = position;
+    }
+    
+    public Employee(String name, String email, String phone, String department, String position) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.department = department;
+        this.position = position;
+    }
+    
+    public Employee() {
+    	
+    }
     
     public int getId() {
         return id;

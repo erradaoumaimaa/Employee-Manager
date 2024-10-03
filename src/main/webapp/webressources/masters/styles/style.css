@@ -22,8 +22,8 @@ body {
 .container h2 {
   padding: 2rem 1rem;
   text-align: center;
-   background: #e74c3c; 
-   color: #fff; 
+   background: #000000; 
+   color: #fca311; 
   font-size: 2.5rem;
 }
 .tbl {
@@ -32,7 +32,7 @@ body {
 }
 .tbl thead {
   background: #000000;
-  color: #fff;
+  color: #fca311;
 }
 .tbl thead tr th {
   font-size: 0.9rem;

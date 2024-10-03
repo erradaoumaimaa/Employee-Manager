@@ -6,7 +6,7 @@
 <hibernate-mapping>
     <class name="models.Employee" table="employee">
         <id name="id" column="id" type="integer">
-            <generator class="native"/>
+            <generator class="identity"/>
         </id>
         <property name="name" column="name" not-null="true" type="string"/>
         <property name="email" column="email" not-null="true" type="string"/>

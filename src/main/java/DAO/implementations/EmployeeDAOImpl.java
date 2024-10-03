@@ -42,7 +42,8 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         Transaction transaction = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
-            session.persist(employee);
+            System.out.println("Adding employee: " + employee.getName());
+            session.save(employee);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
