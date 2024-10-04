@@ -46,5 +46,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public List<Employee> filterEmployees(String search, String position, String department) {
 	    return employeeDAO.findAllEmployees(search, position, department);
 	}
-
+	@Override
+    public List<Employee> searchEmployees(String search, String position, String department) {
+        return employeeDAO.findAllEmployees(search, position, department);
+    }
 }

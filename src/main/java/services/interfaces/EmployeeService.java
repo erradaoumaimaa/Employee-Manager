@@ -18,5 +18,6 @@ public interface EmployeeService {
 	    Optional<Employee> findById(int id);
 	    
 	    List<Employee> filterEmployees(String search, String position, String department);
+	    List<Employee> searchEmployees(String search, String position, String department);
 
 }

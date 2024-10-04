@@ -50,10 +50,24 @@ public class EmployeeController extends HttpServlet {
     }
 
     private void listEmployees(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Employee> employees = employeeService.getAllEmployees();
+        String search = request.getParameter("search");
+        String position = request.getParameter("position");
+        String department = request.getParameter("department");
+        
+        List<Employee> employees;
+        
+        // Si des critères de recherche sont présents, appeler la méthode de recherche
+        if ((search != null && !search.isEmpty()) || (position != null && !position.isEmpty()) || (department != null && !department.isEmpty())) {
+            employees = employeeService.searchEmployees(search, position, department);
+        } else {
+            // Sinon, lister tous les employés
+            employees = employeeService.getAllEmployees();
+        }
+
         request.setAttribute("employees", employees);
         request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
     }
+
 
     private void deleteEmployee(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
