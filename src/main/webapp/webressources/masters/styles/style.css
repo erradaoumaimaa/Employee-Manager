@@ -74,7 +74,6 @@ body {
     color: #008000; 
     padding: 10px 15px;
     text-decoration: none; 
-    border-radius: 5px;
     font-size: 14px;
 }
 
@@ -115,4 +114,5 @@ body {
   .tbl_content {
     padding: 1rem;
   }
+  
 }

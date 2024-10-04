@@ -12,29 +12,32 @@
 <div class="container">
     <div class="tbl_content">
         <h2>Manage Employees</h2>
-         <div style="text-align: right; margin-bottom: 10px;">
-            <a href="${pageContext.request.contextPath}/employees?action=create" class="btn_add">
-                <i class="fa fa-plus"></i> Add Employee
-            </a>
-        </div>
-        <form action="${pageContext.request.contextPath}/employees" method="get" style="margin-bottom: 20px;">
-    <input type="text" name="search" placeholder="Search by name or email" value="${param.search}">
-    <select name="position">
-        <option value="">Select Position</option>
-        <option value="Manager" <c:if test="${param.position == 'Manager'}">selected</c:if>>Manager</option>
-        <option value="Developer" <c:if test="${param.position == 'Developer'}">selected</c:if>>Developer</option>
-        <option value="Designer" <c:if test="${param.position == 'Designer'}">selected</c:if>>Designer</option>
-    </select>
-    <select name="department">
-        <option value="">Select Department</option>
-        <option value="HR" <c:if test="${param.department == 'HR'}">selected</c:if>>HR</option>
-        <option value="IT" <c:if test="${param.department == 'IT'}">selected</c:if>>IT</option>
-        <option value="Finance" <c:if test="${param.department == 'Finance'}">selected</c:if>>Finance</option>
-    </select>
-    <button type="submit">Search</button>
-</form>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; ; padding: 10px;">
+		    <form action="${pageContext.request.contextPath}/employees" method="get" style="display: flex; gap: 10px;">
+		        <input type="text" name="search" placeholder="Search by name or email" value="${param.search}">
+		        
+		        <select style="background:#023047 ;color:#fff ;border-radius: 12px;padding: 10px 15px;" name="position">
+		            <option value="">Select Position</option>
+		            <option value="Manager" <c:if test="${param.position == 'Manager'}">selected</c:if>>Manager</option>
+		            <option value="Developer" <c:if test="${param.position == 'Developer'}">selected</c:if>>Developer</option>
+		            <option value="Designer" <c:if test="${param.position == 'Designer'}">selected</c:if>>Designer</option>
+		        </select>
+		
+		        <select style="background:#023047;color:#fff ;border-radius: 12px;padding: 10px 15px;" name="department">
+		            <option value="">Select Department</option>
+		            <option value="HR" <c:if test="${param.department == 'HR'}">selected</c:if>>HR</option>
+		            <option value="IT" <c:if test="${param.department == 'IT'}">selected</c:if>>IT</option>
+		            <option value="Finance" <c:if test="${param.department == 'Finance'}">selected</c:if>>Finance</option>
+		        </select>
+		
+		        <button style=" background:#023047;color:#fff;border-radius: 12px;padding: 10px 15px;"type="submit">Search</button>
+		    </form>
+		    
+		    <a style="background:#008000; ; color:#fff;border-radius: 12px;" href="${pageContext.request.contextPath}/employees?action=create" class="btn_add">
+		        <i class="fa fa-plus"></i> Add Employee
+		    </a>
+		</div>
 
-        
         <table class="tbl">
             <thead>
                 <tr>
