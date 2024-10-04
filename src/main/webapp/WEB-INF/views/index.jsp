@@ -14,8 +14,7 @@
         <h2>Manage Employees</h2>
         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; ; padding: 10px;">
 		    <form action="${pageContext.request.contextPath}/employees" method="get" style="display: flex; gap: 10px;">
-		        <input type="text" name="search" placeholder="Search by name or email" value="${param.search}">
-		        
+		        <input type="text" name="search" placeholder="Search by name or email" value="${param.search}">		        
 		        <select style="background:#023047 ;color:#fff ;border-radius: 12px;padding: 10px 15px;" name="position">
 		            <option value="">Select Position</option>
 		            <option value="Manager" <c:if test="${param.position == 'Manager'}">selected</c:if>>Manager</option>
